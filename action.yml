@@ -2,10 +2,18 @@ name: 'Figma Tokens to Supernova'
 description: 'Map Figma Tokens to Supernova'
 author: 'Pablo Romero'
 inputs:
-  key: # change this
+  key:
     required: true
     description: 'Supernova secret key'
-    default: 0,
+    default: '',
+  dsid:
+    required: true
+    description: 'Design System ID'
+    default: '',
+  vid:
+    required: true
+    description: 'Version ID'
+    default: '',
 runs:
   using: 'node16'
   main: 'dist/index.js'
