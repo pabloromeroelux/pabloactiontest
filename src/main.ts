@@ -1,12 +1,11 @@
 import * as core from '@actions/core'
-import {Supernova} from '@supernovaio/supernova-sdk'
+import {getData} from './supernova-login'
 
 async function run(): Promise<void> {
   try {
     const key: string = core.getInput('key')
     core.debug(`Waiting ...`)
-    const supernova = new Supernova(key, null, null)
-    const workspaces = await supernova.workspaces()
+    const workspaces = await getData(key)
     const workspace = workspaces[0]
     const designSystems = await workspace.designSystems()
     const designSystem = designSystems[0]

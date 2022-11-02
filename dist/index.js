@@ -36,14 +36,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(2186));
-const supernova_sdk_1 = __nccwpck_require__(885);
+const supernova_login_1 = __nccwpck_require__(1364);
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const key = core.getInput('key');
             core.debug(`Waiting ...`);
-            const supernova = new supernova_sdk_1.Supernova(key, null, null);
-            const workspaces = yield supernova.workspaces();
+            const workspaces = yield (0, supernova_login_1.getData)(key);
             const workspace = workspaces[0];
             const designSystems = yield workspace.designSystems();
             const designSystem = designSystems[0];
@@ -60,6 +59,33 @@ function run() {
     });
 }
 run();
+
+
+/***/ }),
+
+/***/ 1364:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getData = void 0;
+const supernova_sdk_1 = __nccwpck_require__(885);
+const getData = (key) => __awaiter(void 0, void 0, void 0, function* () {
+    const supernova = new supernova_sdk_1.Supernova(key, null, null);
+    const workspaces = yield supernova.workspaces();
+    return workspaces;
+});
+exports.getData = getData;
 
 
 /***/ }),
