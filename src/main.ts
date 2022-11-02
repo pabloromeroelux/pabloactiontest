@@ -6,7 +6,7 @@ async function run(): Promise<void> {
     const key: string = core.getInput('key')
     const dsid: string = core.getInput('dsid')
     const vid: string = core.getInput('vid')
-    const tokens: string = core.getInput('token')
+    const tokens: string = core.getInput('tokens')
     core.debug(`Waiting ...`)
     const version = await getData(key, dsid, vid)
     core.debug(`All good`)

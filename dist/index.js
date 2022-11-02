@@ -43,7 +43,7 @@ function run() {
             const key = core.getInput('key');
             const dsid = core.getInput('dsid');
             const vid = core.getInput('vid');
-            const tokens = core.getInput('token');
+            const tokens = core.getInput('tokens');
             core.debug(`Waiting ...`);
             const version = yield (0, supernova_login_1.getData)(key, dsid, vid);
             core.debug(`All good`);
