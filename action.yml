@@ -1,10 +1,10 @@
-name: 'Pablo Romero'
-description: 'testing Github actions'
-author: 'Holy Guacamole'
+name: 'Figma Tokens to Supernova'
+description: 'Map Figma Tokens to Supernova'
+author: 'Pablo Romero'
 inputs:
-  milliseconds: # change this
+  key: # change this
     required: true
-    description: 'milliseconds description'
+    description: 'Supernova secret key'
     default: 0,
 runs:
   using: 'node16'
