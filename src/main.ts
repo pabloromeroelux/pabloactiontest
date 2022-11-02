@@ -6,13 +6,14 @@ async function run(): Promise<void> {
     const key: string = core.getInput('key')
     const dsid: string = core.getInput('dsid')
     const vid: string = core.getInput('vid')
+    const tokens: string = core.getInput('token')
     core.debug(`Waiting ...`)
     const version = await getData(key, dsid, vid)
     core.debug(`All good`)
     if (version) {
       core.setOutput(
         'response',
-        `DS: ${version.designSystem.name} with id ${version.designSystem.id}, Version: ${version.name} widh id ${version.id}!!!`
+        `DS: ${version.designSystem.name} with id ${version.designSystem.id}, Version: ${version.name} widh id ${version.id}, tokens update: ${tokens}!!!`
       )
     } else {
       core.setOutput('response', 'NO')

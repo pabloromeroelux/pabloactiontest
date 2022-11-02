@@ -14,6 +14,10 @@ inputs:
     required: true
     description: 'Version ID'
     default: ''
+  token:
+    required: true
+    description: 'Tokens from Figma Tokens'
+    default: ''
 runs:
   using: 'node16'
   main: 'dist/index.js'

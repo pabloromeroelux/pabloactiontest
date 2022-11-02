@@ -43,11 +43,12 @@ function run() {
             const key = core.getInput('key');
             const dsid = core.getInput('dsid');
             const vid = core.getInput('vid');
+            const tokens = core.getInput('token');
             core.debug(`Waiting ...`);
             const version = yield (0, supernova_login_1.getData)(key, dsid, vid);
             core.debug(`All good`);
             if (version) {
-                core.setOutput('response', `DS: ${version.designSystem.name} with id ${version.designSystem.id}, Version: ${version.name} widh id ${version.id}!!!`);
+                core.setOutput('response', `DS: ${version.designSystem.name} with id ${version.designSystem.id}, Version: ${version.name} widh id ${version.id}, tokens update: ${tokens}!!!`);
             }
             else {
                 core.setOutput('response', 'NO');
