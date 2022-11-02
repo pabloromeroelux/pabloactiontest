@@ -14,7 +14,7 @@ inputs:
     required: true
     description: 'Version ID'
     default: ''
-  token:
+  tokens:
     required: true
     description: 'Tokens from Figma Tokens'
     default: ''
