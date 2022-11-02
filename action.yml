@@ -5,15 +5,15 @@ inputs:
   key:
     required: true
     description: 'Supernova secret key'
-    default: '',
+    default: ''
   dsid:
     required: true
     description: 'Design System ID'
-    default: '',
+    default: ''
   vid:
     required: true
     description: 'Version ID'
-    default: '',
+    default: ''
 runs:
   using: 'node16'
   main: 'dist/index.js'
