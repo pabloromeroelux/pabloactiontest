@@ -41,15 +41,17 @@ function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const key = core.getInput('key');
+            const dsid = core.getInput('dsid');
+            const vid = core.getInput('vid');
             core.debug(`Waiting ...`);
-            const workspaces = yield (0, supernova_login_1.getData)(key);
-            const workspace = workspaces[0];
-            const designSystems = yield workspace.designSystems();
-            const designSystem = designSystems[0];
-            const versions = yield designSystem.versions();
-            const version = versions[0];
+            const version = yield (0, supernova_login_1.getData)(key, dsid, vid);
             core.debug(`All good`);
-            core.setOutput('response', `DS: ${designSystem.name} with id ${designSystem.id}, Version: ${version.name} widh id ${version.id}`);
+            if (version) {
+                core.setOutput('response', `DS: ${version.designSystem.name} with id ${version.designSystem.id}, Version: ${version.name} widh id ${version.id}!!!`);
+            }
+            else {
+                core.setOutput('response', 'NO');
+            }
         }
         catch (error) {
             core.setOutput('response', 'NO');
@@ -80,10 +82,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getData = void 0;
 const supernova_sdk_1 = __nccwpck_require__(885);
-const getData = (key) => __awaiter(void 0, void 0, void 0, function* () {
+const getData = (key, dsid, vid) => __awaiter(void 0, void 0, void 0, function* () {
     const supernova = new supernova_sdk_1.Supernova(key, null, null);
-    const workspaces = yield supernova.workspaces();
-    return workspaces;
+    supernova.designSystemVersion(dsid, vid);
+    return supernova.designSystemVersion(dsid, vid);
 });
 exports.getData = getData;
 
