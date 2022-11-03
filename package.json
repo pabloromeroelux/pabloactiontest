@@ -1,5 +1,5 @@
 {
-  "name": "typescript-action",
+  "name": "figma_supernova_tokens_sync_action",
   "version": "0.0.0",
   "private": true,
   "description": "TypeScript template action",

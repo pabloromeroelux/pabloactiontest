@@ -1,6 +1,6 @@
 name: 'Figma Tokens to Supernova'
 description: 'Map Figma Tokens to Supernova'
-author: 'Pablo Romero'
+author: 'Pablo Romero Jaren'
 inputs:
   key:
     required: true
@@ -13,6 +13,10 @@ inputs:
   vid:
     required: true
     description: 'Version ID'
+    default: ''
+  themes:
+    required: true
+    description: 'Theme structure'
     default: ''
   tokens:
     required: true
